@@ -11,51 +11,51 @@ Dim rightList As Integer() = {
 }
 
 Function Star1(ByVal leftList As Integer(), ByVal rightList as Integer()) As Integer
-  Dim differenceList As New List(Of Integer)
+	Dim differenceList As New List(Of Integer)
 
-  For i As Integer = 0 To leftList.Length - 1
-    Dim leftNumber As Integer = leftList(i)
-    Dim rightNumber As Integer = rightList(i)
-    Dim difference As Integer = rightNumber - leftNumber
+	For i As Integer = 0 To leftList.Length - 1
+		Dim leftNumber As Integer = leftList(i)
+		Dim rightNumber As Integer = rightList(i)
+		Dim difference As Integer = rightNumber - leftNumber
 
-    If difference < 0 Then
-      difference = leftNumber - rightNumber
-    End If
-    Console.WriteLine("Left number: " & leftNumber & ", Right number: " & rightNumber & ", Difference: " & difference)
-    differenceList.Add(difference)
-  Next
+		If difference < 0 Then
+			difference = leftNumber - rightNumber
+		End If
+		Console.WriteLine("Left number: " & leftNumber & ", Right number: " & rightNumber & ", Difference: " & difference)
+		differenceList.Add(difference)
+	Next
 
-  Dim totalDifference As Integer = differenceList.Sum()
-  Console.WriteLine("Total difference: " & totalDifference)
+	Dim totalDifference As Integer = differenceList.Sum()
+	Console.WriteLine("Total difference: " & totalDifference)
 End Function
 
 Function Star2(ByVal leftList As Integer(), ByVal rightList as Integer()) As Integer
-  Dim similarityScores As New List(Of Integer)
+	Dim similarityScores As New List(Of Integer)
 
-  For i As Integer = 0 To leftList.Length - 1
-    Dim leftNumber As Integer = leftList(i)
-    Dim rightNumber As Integer = rightList(i)
-    Dim difference As Integer = rightNumber - leftNumber
+	For i As Integer = 0 To leftList.Length - 1
+		Dim leftNumber As Integer = leftList(i)
+		Dim rightNumber As Integer = rightList(i)
+		Dim difference As Integer = rightNumber - leftNumber
 
-    Dim similarityScore = rightList.Count(Function (x) x = leftNumber)
-      similarityScore = similarityScore * leftNumber
+		Dim similarityScore = rightList.Count(Function (x) x = leftNumber)
+		similarityScore = similarityScore * leftNumber
 
-      similarityScores.Add(similarityScore)
-    Next
+		similarityScores.Add(similarityScore)
+	Next
 
-    Console.WriteLine("Total similarity score: " & similarityScores.Sum())
-  End Function
+	Console.WriteLine("Total similarity score: " & similarityScores.Sum())
+End Function
 
-  Sub Main(args As String())
-    Console.WriteLine("Advent of Code - Day 1!")
+Sub Main(args As String())
+	Console.WriteLine($"Advent of Code - Day 1! {vbCrLf}---{vbCrLf}")
 
-    Console.WriteLine("Total number of elements in left list: " & leftList.Length)
-    Console.WriteLine("Total number of elements in right list: " & rightList.Length)
+	Console.WriteLine("Total number of elements in left list: " & leftList.Length)
+	Console.WriteLine("Total number of elements in right list: " & rightList.Length)
 
-    Array.Sort(leftList)
-    Array.Sort(rightList)
+	Array.Sort(leftList)
+	Array.Sort(rightList)
 
-    Star1(leftList, rightList)
-    ' Star2(leftList, rightList)
-  End Sub
-  End Module
+	Star1(leftList, rightList)
+' Star2(leftList, rightList)
+End Sub
+End Module
