@@ -5,7 +5,7 @@ Imports System.Text.RegularExpressions
 Module Program
 
 Sub Main(args As String())
-	Console.WriteLine($"Advent of Code - Day 3! {vbCrLf}---{vbCrLf}")
+	Console.WriteLine($"Advent of Code - Day 3! {vbCrLf}---")
 
 	Dim input As String() = File.ReadAllLines("input.txt")
 
@@ -16,7 +16,7 @@ Sub Main(args As String())
   part1Matches = ExtractMatches(input, mulRegex)
 
   Dim part1Total = ComputeTotal(part1Matches)
-	Console.WriteLine($"---{vbCrlf}Part 1: {part1Total}{vbCrLf}")
+	Console.WriteLine($"Part 1: {part1Total}{vbCrLf}")
 
   ' Part 2
   Dim mulDoDontRegex As New Regex("mul\(([0-9]+),([0-9]+)\)|do\(\)|don\'t\(\)")
@@ -25,7 +25,7 @@ Sub Main(args As String())
   part2Matches = ExtractDoMatches(input, mulDoDontRegex)
 
   Dim part2Total = ComputeTotal(part2Matches)
-	Console.WriteLine($"---{vbCrlf}Part 2: {part2Total}{vbCrLf}")
+	Console.WriteLine($"Part 2: {part2Total}{vbCrLf}")
 End Sub
 
 Function ExtractDoMatches(input As String(), regex As Regex) As List(Of KeyValuePair(Of Integer, Integer))
