@@ -30,12 +30,9 @@ Function IsValid(pageNumbers As Integer(), rules As String()) As Boolean
 
         For Each rule As String In rules
             Dim ruleParts As String() = rule.Split("|")
-            Dim x As Integer = ruleParts(0)
-            Dim y As Integer = ruleParts(1)
+            Dim xIndex = Array.IndexOf(pageNumbers, Convert.ToInt32(ruleParts(0)))
+            Dim yIndex = Array.IndexOf(pageNumbers, Convert.ToInt32(ruleParts(1)))
 
-            Dim xIndex = Array.IndexOf(pageNumbers, x)
-            Dim yIndex = Array.IndexOf(pageNumbers, y)
-            
             If xIndex > -1 AndAlso yIndex > -1 Then
                 If xIndex > yIndex Then
                     pageNumbersValid = false
